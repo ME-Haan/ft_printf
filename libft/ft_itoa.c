@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 18:00:10 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/21 10:33:15 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/10/31 17:23:53 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ static int	fill_str(char *str, size_t numlen, int n, int sign)
 	return (0);
 }
 
-// #include <stdio.h>
-// int	main (void)
-// {
-// 	int	x = 0;
-// 	printf("%s\n", ft_itoa(x));
-// }
+/* #include <stdio.h>
+int	main (void)
+{
+	int	x = 0;
+	printf("%s\n", ft_itoa(x));
+} */
