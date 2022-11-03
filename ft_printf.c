@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:08:40 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/29 17:27:21 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/01 12:19:38 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 
 // cspdiuxX%
-int	ft_printf(const char *str, ...) // const char *?
+int	ft_printf(const char *fmt, ...) 
 {
 	va_list	arg;
-	va_start(arg, *);
+	va_start(arg, fmt);
 
-	while (*str)
+	while (*fmt)
 	{
-		while (*str != '%')
+		while (*fmt != '%')
 		{
-			ft_putchar_fd(1, &str);
-			str++;
+			ft_putchar_fd(1, &fmt);
+			fmt++;
 		}
-		str++;
+		fmt++;
 		
 
 	}
