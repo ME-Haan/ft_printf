@@ -6,40 +6,50 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:08:40 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/03 17:38:57 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/04 12:00:58 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"printf.h"
-#include	"./libft/libft.h"
+#include	"libft.h"
 
 #include	<stdio.h>
 
-static char	*convert (unsigned int num, int base)
+// static int	print_convert(unsigned int num, int base)
+// {
+// 	const char	*symbols = "0123456789ABCDEF";
+// 	size_t		len;
+
+// 	len = 0;
+// 	while (num != 0)
+// 	{
+// 		ft_putchar_fd(symbols[num % base], 1);
+// 		len++;
+// 		num /= base;
+// 	}
+// 	return (len);
+// }
+
+static int	ft_putnbr_base(unsigned int n, int base, size_t len)
 {
 	const char	*symbols = "0123456789ABCDEF";
-	char	str[99];
-	char	*ptr;
-
-	ptr = &str[98];
-	*ptr = '\0';
-	while (num)
+	long long	tmp;
+	
+	tmp = n;
+	if (tmp / base != 0)
 	{
-		// printf("%i", num);
-		*--ptr = symbols[num % base];
-		// printf("%c", *ptr);
-		num /= base;
+		ft_putnbr_base(tmp / base, 16, len);
 	}
-	printf("%s", ptr);
-	return (ptr);
+	len++;
+	ft_putchar_fd(symbols[tmp % base], 1);
+	return (len);
 }
 
-int	ft_printf(const char *fmt, ...) 
+int	ft_printf(const char *fmt, ...)
 {
 	va_list			arg;
 	size_t			len;
 	char			*s;
-	// unsigned int	i;
 
 	va_start(arg, fmt);
 	len = 0;
@@ -58,40 +68,37 @@ int	ft_printf(const char *fmt, ...)
 				ft_putchar_fd(va_arg(arg, int), 1);
 				len++;
 			}
-			if (*fmt == 's')
+			else if (*fmt == 's')
 			{
 				s = va_arg(arg, char *);
 				ft_putstr_fd(s, 1);
 				len += ft_strlen(s);
 			}
-			// if (*fmt == 'p')
+			//else if (*fmt == 'p')
 			// {
 				
 			// }
-			if (*fmt == 'd' || *fmt == 'i')
+			else if (*fmt == 'd' || *fmt == 'i')
 			{
 				s = ft_itoa(va_arg(arg, int));
 				ft_putstr_fd(s, 1);
 				len += ft_strlen(s);
 			}
-			if (*fmt == 'u')
+			else if (*fmt == 'u')
 			{
 				s = ft_itoa(va_arg(arg, int));
 				ft_putstr_fd(s, 1);
 				len += ft_strlen(s);
 			}
-			if (*fmt == 'x')
+			else if (*fmt == 'x')
 			{
-				s = convert(va_arg(arg, unsigned int), 16);
-				printf("%s\n", s);
-				ft_putstr_fd(s, 1);
-				len += ft_strlen(s);
+				len += ft_putnbr_base(va_arg(arg, unsigned int), 16, 0);
 			}
-			// if (*fmt == 'X')
+			//else if (*fmt == 'X')
 			// {
 				
 			// }
-			if (*fmt == '%')
+			else if (*fmt == '%')
 			{
 				ft_putchar_fd('%', 1);
 				len++;
@@ -108,7 +115,10 @@ int	main (void)
 	// char str[99] = "to test ft_printf!";
 	// int num = 12345;
 	// char c = 'X';
-	// ft_printf("this is a test string %% %c %s %d\n", c, str, num);
-	ft_printf("%x\n", 1000);
+	size_t len;
+
+	// len = ft_printf("this is a test string %% %c %s %d\n", c, str, num);
+	len = ft_printf("%x\n", 1000);
+	printf("%lu\n", len);
 	return (0);
 }
