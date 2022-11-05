@@ -6,50 +6,18 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:08:40 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/04 12:00:58 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/05 15:14:36 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"printf.h"
-#include	"libft.h"
-
-#include	<stdio.h>
-
-// static int	print_convert(unsigned int num, int base)
-// {
-// 	const char	*symbols = "0123456789ABCDEF";
-// 	size_t		len;
-
-// 	len = 0;
-// 	while (num != 0)
-// 	{
-// 		ft_putchar_fd(symbols[num % base], 1);
-// 		len++;
-// 		num /= base;
-// 	}
-// 	return (len);
-// }
-
-static int	ft_putnbr_base(unsigned int n, int base, size_t len)
-{
-	const char	*symbols = "0123456789ABCDEF";
-	long long	tmp;
-	
-	tmp = n;
-	if (tmp / base != 0)
-	{
-		ft_putnbr_base(tmp / base, 16, len);
-	}
-	len++;
-	ft_putchar_fd(symbols[tmp % base], 1);
-	return (len);
-}
 
 int	ft_printf(const char *fmt, ...)
 {
 	va_list			arg;
-	size_t			len;
+	int				len;
 	char			*s;
+	unsigned int	n;
 
 	va_start(arg, fmt);
 	len = 0;
@@ -74,10 +42,12 @@ int	ft_printf(const char *fmt, ...)
 				ft_putstr_fd(s, 1);
 				len += ft_strlen(s);
 			}
-			//else if (*fmt == 'p')
-			// {
-				
-			// }
+			else if (*fmt == 'p')
+			{
+				n = (unsigned int)va_arg(arg, void *);
+				ft_putnbr_base(n, 16, *fmt);
+				len += num_len_base(n, 16) + 2;
+			}
 			else if (*fmt == 'd' || *fmt == 'i')
 			{
 				s = ft_itoa(va_arg(arg, int));
@@ -90,14 +60,12 @@ int	ft_printf(const char *fmt, ...)
 				ft_putstr_fd(s, 1);
 				len += ft_strlen(s);
 			}
-			else if (*fmt == 'x')
+			else if (*fmt == 'x' || *fmt == 'X')
 			{
-				len += ft_putnbr_base(va_arg(arg, unsigned int), 16, 0);
+				n = va_arg(arg, unsigned int);
+				ft_putnbr_base(n, 16, *fmt);
+				len += num_len_base(n, 16);
 			}
-			//else if (*fmt == 'X')
-			// {
-				
-			// }
 			else if (*fmt == '%')
 			{
 				ft_putchar_fd('%', 1);
@@ -110,15 +78,18 @@ int	ft_printf(const char *fmt, ...)
 	return (len);
 }
 
+#include	<stdio.h>
 int	main (void)
 {
 	// char str[99] = "to test ft_printf!";
-	// int num = 12345;
+	int num = 47574924;
 	// char c = 'X';
-	size_t len;
+	// int len;
+	// char	*ptr = "sns";
 
 	// len = ft_printf("this is a test string %% %c %s %d\n", c, str, num);
-	len = ft_printf("%x\n", 1000);
-	printf("%lu\n", len);
-	return (0);
+	// len = ft_printf("%p", ptr);
+	// ft_printf("\n%d\n", len);
+	ft_printf("ft: %x\n", num);
+	printf("lib: %x", num);
 }

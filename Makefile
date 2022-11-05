@@ -6,13 +6,13 @@
 #    By: mhaan <mhaan@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/27 16:14:12 by mhaan         #+#    #+#                  #
-#    Updated: 2022/10/27 16:15:36 by mhaan         ########   odam.nl          #
+#    Updated: 2022/11/05 14:22:17 by mhaan         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = 		
+SRC = 	
 
 OBS = $(SRC:.c=.o)
 
