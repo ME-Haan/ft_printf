@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:09:56 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/07 10:02:24 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/07 17:13:52 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "./libft/libft.h"
 
-int		ft_printf(const char *fmt, ...);
-void	ft_putnbr_base(unsigned int n, int base, char c);
-int		num_len_base(unsigned int n, int base);
+int			ft_printf(const char *fmt, ...);
+size_t		ft_putnbr_base(unsigned long n, int base, char fmt);
+size_t		num_len_base(unsigned long n, int base);
 
 #endif

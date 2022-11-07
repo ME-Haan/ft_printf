@@ -11,32 +11,36 @@
 /* ************************************************************************** */
 
 #include	"printf.h"
-#include	"libft.h"
+#include	"../libft/libft.h"
 #include	<stdio.h>
 
-void	ft_putnbr_base(unsigned int n, int base, char fmt)
+size_t	ft_putnbr_base(unsigned long n, int base, char fmt)
 {
 	const char	*symbols = "0123456789ABCDEF";
+	size_t		len;
+	char		tmp;
 
+	len = 0;
 	if (fmt == 'p')
 	{
-		ft_putstr_fd("0x", 1);
+		len += write(1, "0x", 2);
 		fmt = 'x';
 	}
 	if ((n / base) != 0)
-	{
-		printf("\n%u", n);
-		ft_putnbr_base(n / base, base, fmt);
-	}
+		len += ft_putnbr_base(n / base, base, fmt);
 	if (fmt == 'x')
-		ft_putchar_fd(ft_tolower(symbols[n % base]), 1);
+	{
+		tmp = ft_tolower(symbols[n % base]);
+		len += write(1, &tmp, 1);
+	}
 	else if (fmt == 'X')
-		ft_putchar_fd(symbols[n % base], 1);
+		len += write(1, &symbols[n % base], 1);
+	return (len);
 }
 
-int	num_len_base(unsigned int n, int base)
+size_t	num_len_base(unsigned long n, int base)
 {
-	size_t			numlen;
+	size_t	numlen;
 
 	numlen = 1;
 	while (n / base)
