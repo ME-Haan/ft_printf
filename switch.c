@@ -1,25 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   printf.h                                           :+:    :+:            */
+/*   switch.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/27 16:09:56 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/07 10:02:24 by mhaan         ########   odam.nl         */
+/*   Created: 2022/10/29 17:25:59 by mhaan         #+#    #+#                 */
+/*   Updated: 2022/11/05 12:59:00 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include	"printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
+void	print_char ()
+{
+	
+}
 
-int		ft_printf(const char *fmt, ...);
-void	ft_putnbr_base(unsigned int n, int base, char c);
-int		num_len_base(unsigned int n, int base);
+void	print_str ()
+{
+	
+}
 
-#endif
+void	print_voidptr ()
+{
+	
+}
+
+void	print_decimal ()
+{
+	
+}
+
+void	print_int ()
+{
+	
+}
+
+void	print_uns_dec ()
+{
+
+}
+
+void	print_lc_hex ()
+{
+	
+}
+
+void	print_uc_hex ()
+{
+	
+}
+
+void	print_pct_sign ()
+{
+	
+}

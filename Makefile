@@ -6,40 +6,46 @@
 #    By: mhaan <mhaan@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/27 16:14:12 by mhaan         #+#    #+#                  #
-#    Updated: 2022/11/05 14:22:17 by mhaan         ########   odam.nl          #
+#    Updated: 2022/11/07 10:55:57 by mhaan         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+CC = gcc
+AR = -crs
+CFLAGS = -Wall -Wextra -Werror
+RM = /bin/rm -f 
 
-SRC = 	
+SRC_DIR = src/
+SRC = 	ft_printf.c helpers.c switch.c
 
-OBS = $(SRC:.c=.o)
+OBJ_DIR = obj/
+OBS = $(addprefix $(OBJ_DIR),$(SRC:.c=.o)
 
 BONUS = 	
-
 BOBS = $(BONUS:.c=.o)
-
-CC = gcc
-ARFLAGS = -crs
-CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBS)
-		ar $(ARFLAGS) $(NAME) $(OBS)
+		@make -C libft
+		@cp libft/libft.a ./$(NAME)
+		@ar $(AR) $(NAME) $(OBS)
 
-%.o: %.c
-		$(CC) -c $(CFLAGS) $^ -o $@
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+		@$(CC) -c $(CFLAGS) $< -o $@
+
+$(OBJF):
+		@mkdir -p $(OBJ_DIR)
 
 bonus: $(OBS) $(BOBS)
-		ar $(ARFLAGS) $(NAME) $(OBS) $(BOBS)
+		ar $(AR) $(NAME) $(OBS) $(BOBS)
 
 clean:
-		/bin/rm -f $(OBS) $(BOBS)
+		@$(RM) $(OBJ_DIR)$(OBS)
 
 fclean: clean
-		/bin/rm -f $(NAME)
+		$(RM) $(NAME)
 
 re:
 		$(MAKE) fclean
