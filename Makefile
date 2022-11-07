@@ -6,7 +6,7 @@
 #    By: mhaan <mhaan@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/27 16:14:12 by mhaan         #+#    #+#                  #
-#    Updated: 2022/11/07 10:55:57 by mhaan         ########   odam.nl          #
+#    Updated: 2022/11/07 15:47:20 by mhaan         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,42 +14,38 @@ NAME = libftprintf.a
 CC = gcc
 AR = -crs
 CFLAGS = -Wall -Wextra -Werror
-RM = /bin/rm -f 
+RM = /bin/rm -rf
 
 SRC_DIR = src/
 SRC = 	ft_printf.c helpers.c switch.c
 
 OBJ_DIR = obj/
-OBS = $(addprefix $(OBJ_DIR),$(SRC:.c=.o)
-
-BONUS = 	
-BOBS = $(BONUS:.c=.o)
+OBJS = $(addprefix $(OBJ_DIR),$(SRC:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(OBS)
+$(NAME): $(OBJS)
 		@make -C libft
 		@cp libft/libft.a ./$(NAME)
-		@ar $(AR) $(NAME) $(OBS)
+		@ar $(AR) $(NAME) $(OBJS)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
-		@$(CC) -c $(CFLAGS) $< -o $@
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
+		@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJF):
 		@mkdir -p $(OBJ_DIR)
 
-bonus: $(OBS) $(BOBS)
-		ar $(AR) $(NAME) $(OBS) $(BOBS)
-
 clean:
-		@$(RM) $(OBJ_DIR)$(OBS)
+		@$(RM) $(OBJ_DIR)
+		@make clean -C libft
 
 fclean: clean
 		$(RM) $(NAME)
+		$(RM) libft/libft.a
 
 re:
 		$(MAKE) fclean
 		$(MAKE) all
 
 .PHONY:
-		all bonus clean fclean re
+		all clean fclean re

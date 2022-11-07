@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include	"printf.h"
+#include	"libft.h"
 #include	<stdio.h>
 
 void	ft_putnbr_base(unsigned int n, int base, char fmt)
