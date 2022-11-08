@@ -6,17 +6,17 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 12:38:30 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/08 11:38:52 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/08 15:01:14 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"printf.h"
 #include	<stdio.h>
 
-size_t	ft_putnbr_base(long long n, int base, char fmt)
+int	put_uns_base(size_t n, int base, char fmt)
 {
 	const char	*symbols = "0123456789ABCDEF";
-	size_t		len;
+	int			len;
 	char		tmp;
 
 	len = 0;
@@ -26,7 +26,7 @@ size_t	ft_putnbr_base(long long n, int base, char fmt)
 		fmt = 'x';
 	}
 	if ((n / base) != 0)
-		len += ft_putnbr_base(n / base, base, fmt);
+		len += put_uns_base(n / base, base, fmt);
 	if (fmt == 'x')
 	{
 		tmp = ft_tolower(symbols[n % base]);
@@ -36,5 +36,27 @@ size_t	ft_putnbr_base(long long n, int base, char fmt)
 		len += write(1, &symbols[n % base], 1);
 	else
 		len += write(1, &symbols[n % base], 1);
+	return (len);
+}
+
+int	put_sign_dec(int n, char fmt)
+{
+	size_t	num;
+	int		len;
+
+	len = 0;
+	if (n == -2147483648)
+	{
+		len += write(1, "-2147483648", 11);
+		return (len);
+	}
+	if (n < 0)
+	{
+		num = n * -1;
+		len += write(1, "-", 1);
+	}
+	else
+		num = n;
+	len += put_uns_base(num, 10, fmt);
 	return (len);
 }

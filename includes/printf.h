@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:09:56 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/08 11:39:29 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/08 16:39:37 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-int			ft_printf(const char *fmt, ...);
-size_t		ft_putnbr_base(long long n, int base, char fmt);
+int		ft_printf(const char *fmt, ...);
+int		put_uns_base(size_t n, int base, char fmt);
+int		put_sign_dec(int n, char fmt);
 
 #endif
