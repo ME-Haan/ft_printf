@@ -6,12 +6,11 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/29 17:25:59 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/07 16:55:44 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/08 09:53:03 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"printf.h"
-#include	"../libft/libft.h"
 
 void	print_char ()
 {

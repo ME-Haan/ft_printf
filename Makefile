@@ -6,15 +6,16 @@
 #    By: mhaan <mhaan@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/27 16:14:12 by mhaan         #+#    #+#                  #
-#    Updated: 2022/11/07 15:47:20 by mhaan         ########   odam.nl          #
+#    Updated: 2022/11/08 10:29:00 by mhaan         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-CC = gcc
-AR = -crs
+AR = ar -crs
 CFLAGS = -Wall -Wextra -Werror
 RM = /bin/rm -rf
+
+HEADER = includes
 
 SRC_DIR = src/
 SRC = 	ft_printf.c helpers.c switch.c
@@ -25,19 +26,17 @@ OBJS = $(addprefix $(OBJ_DIR),$(SRC:.c=.o))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		@make -C libft
-		@cp libft/libft.a ./$(NAME)
-		@ar $(AR) $(NAME) $(OBJS)
+		make bonus -C libft
+		cp libft/libft.a ./$(NAME)
+		$(AR) $(NAME) $(OBJS)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
-		@$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJF):
-		@mkdir -p $(OBJ_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+		mkdir -p $(OBJ_DIR)
+		$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
 clean:
-		@$(RM) $(OBJ_DIR)
-		@make clean -C libft
+		$(RM) $(OBJ_DIR)
+		make clean -C libft
 
 fclean: clean
 		$(RM) $(NAME)
