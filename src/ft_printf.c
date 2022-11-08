@@ -6,11 +6,11 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:08:40 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/08 16:43:43 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/08 17:19:20 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"printf.h"
+#include	"ft_printf.h"
 
 int	ft_printf(const char *fmt, ...)
 {

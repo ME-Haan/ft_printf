@@ -6,11 +6,11 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 12:38:30 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/08 15:01:14 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/08 17:19:07 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"printf.h"
+#include	"ft_printf.h"
 #include	<stdio.h>
 
 int	put_uns_base(size_t n, int base, char fmt)
