@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/29 17:25:59 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/12 15:00:39 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/12 15:17:35 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	fmt_switch(char fmt, va_list arg)
 
 	len = 0;
 	if (fmt == 'c')
-		len += put_chr_printf(arg);
+		len += put_chr_printf(va_arg(arg, int));
 	else if (fmt == 's')
-		len += put_str_printf(arg);
+		len += put_str_printf(va_arg(arg, char *));
 	else if (fmt == 'd' || fmt == 'i')
 		len += put_sign_dec(va_arg(arg, int), fmt);
 	else if (fmt == 'u')

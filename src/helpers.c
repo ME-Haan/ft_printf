@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 12:38:30 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/12 14:25:32 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/12 15:17:28 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ int	put_sign_dec(int n, char fmt)
 
 	len = 0;
 	if (n == -2147483648)
-	{
-		len += write(1, "-2147483648", 11);
-		return (len);
-	}
+		return (write(1, "-2147483648", 11));
 	if (n < 0)
 	{
 		num = n * -1;
@@ -60,27 +57,14 @@ int	put_sign_dec(int n, char fmt)
 	return (len);
 }
 
-int	put_str_printf(va_list arg)
+int	put_str_printf(char *str)
 {
-	int		len;
-	char	*str;
-
-	len = 0;
-	str = va_arg(arg, char *);
 	if (!str)
-		len += write(1, "(null)", 6);
-	else
-		len += write(1, str, ft_strlen(str));
-	return (len);
+		return (write(1, "(null)", 6));
+	return (write(1, str, ft_strlen(str)));
 }
 
-int	put_chr_printf(va_list arg)
+int	put_chr_printf(char c)
 {
-	int		len;
-	char	c;
-
-	len = 0;
-	c = va_arg(arg, int);
-	len += write(1, &c, 1);
-	return (len);
+	return (write(1, &c, 1));
 }
