@@ -6,12 +6,11 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 12:38:30 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/08 17:19:07 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/12 14:25:32 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
-#include	<stdio.h>
 
 int	put_uns_base(size_t n, int base, char fmt)
 {
@@ -58,5 +57,30 @@ int	put_sign_dec(int n, char fmt)
 	else
 		num = n;
 	len += put_uns_base(num, 10, fmt);
+	return (len);
+}
+
+int	put_str_printf(va_list arg)
+{
+	int		len;
+	char	*str;
+
+	len = 0;
+	str = va_arg(arg, char *);
+	if (!str)
+		len += write(1, "(null)", 6);
+	else
+		len += write(1, str, ft_strlen(str));
+	return (len);
+}
+
+int	put_chr_printf(va_list arg)
+{
+	int		len;
+	char	c;
+
+	len = 0;
+	c = va_arg(arg, int);
+	len += write(1, &c, 1);
 	return (len);
 }
