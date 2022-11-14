@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/29 17:25:59 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/12 15:17:35 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/14 11:34:44 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int	fmt_switch(char fmt, va_list arg)
 	else if (fmt == 'd' || fmt == 'i')
 		len += put_sign_dec(va_arg(arg, int), fmt);
 	else if (fmt == 'u')
-		len += put_uns_base(va_arg(arg, size_t), 10, fmt);
+		len += put_uns_base(va_arg(arg, unsigned int), 10, fmt);
 	else if (fmt == 'p')
 		len += put_uns_base((size_t)va_arg(arg, void *), 16, fmt);
 	else if (fmt == 'x' || fmt == 'X')
-		len += put_uns_base(va_arg(arg, size_t), 16, fmt);
+		len += put_uns_base(va_arg(arg, unsigned int), 16, fmt);
 	else if (fmt == '%')
 		len += write(1, "%", 1);
 	return (len);
