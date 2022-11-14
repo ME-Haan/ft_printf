@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 12:38:30 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/14 11:37:06 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/14 16:05:41 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 int	put_uns_base(size_t n, int base, char fmt)
 {
 	const char	*symbols = "0123456789ABCDEF";
-	int			len;
 	char		tmp;
+	int			len;
 
 	len = 0;
 	if (fmt == 'p')
 	{
-		len += write(1, "0x", 2);
+		if (++len && ++len && write(1, "0x", 2) == -1)
+			return (-1);
 		fmt = 'x';
 	}
 	if ((n / base) != 0)
@@ -29,10 +30,9 @@ int	put_uns_base(size_t n, int base, char fmt)
 	if (fmt == 'x')
 	{
 		tmp = ft_tolower(symbols[n % base]);
-		len += write(1, &tmp, 1);
+		if (++len && write(1, &tmp, 1) == -1)
+			return (-1);
 	}
-	else if (fmt == 'X')
-		len += write(1, &symbols[n % base], 1);
 	else
 		len += write(1, &symbols[n % base], 1);
 	return (len);
@@ -42,6 +42,7 @@ int	put_sign_dec(int n, char fmt)
 {
 	size_t	num;
 	int		len;
+	int		tmp;
 
 	len = 0;
 	if (n == -2147483648)
@@ -49,11 +50,15 @@ int	put_sign_dec(int n, char fmt)
 	if (n < 0)
 	{
 		num = n * -1;
-		len += write(1, "-", 1);
+		if (++len && write(1, "-", 1) == -1)
+			return (-1);
 	}
 	else
 		num = n;
+	tmp = len;
 	len += put_uns_base(num, 10, fmt);
+	if (tmp > len)
+		return (-1);
 	return (len);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:08:40 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/14 11:32:29 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/14 13:47:53 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,17 @@ int	ft_printf(const char *fmt, ...)
 	while (*fmt)
 	{
 		if (*fmt != '%')
-			len += write(1, fmt, 1);
+		{
+			if (++len && write(1, fmt, 1) == -1)
+				return (-1);
+		}
 		else if (++fmt)
 		{
 			if (!(ft_strchr("cspdiuxX%", *fmt)))
-				return (len);
+				return (-1);
 			else
-				len += fmt_switch(*fmt, arg);
+				if (len > fmt_switch(*fmt, arg, &len))
+					return (-1);
 		}
 		fmt++;
 	}
@@ -47,8 +51,7 @@ int	ft_printf(const char *fmt, ...)
 // 	// ft_printf("\n%i\n", ft_printf("this is a str %% %c %s %i", c, str, num));
 // 	// printf("\n%i\n", printf("this is a str %% %c %s %i", c, str, num));
 
-// 	printf("\n%i\n", ft_printf(" %x ", -2147483648));
-// 	// printf("\n%i\n", printf(" %x ", -2147483648));
+// 	// ft_printf("\001\002\007\v\010\f\r\n");
 
 // 	// ft_printf("\n%i\n", ft_printf("%s", (char *)NULL));
 // 	// printf("\n%i\n", printf("%s", (char *)NULL));

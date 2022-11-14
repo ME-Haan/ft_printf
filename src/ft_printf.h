@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:09:56 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/14 11:37:19 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/14 14:26:18 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 // functions
 int	ft_printf(const char *fmt, ...);
-int	fmt_switch(char fmt, va_list arg);
+int	fmt_switch(char fmt, va_list arg, int *len);
 int	put_uns_base(size_t n, int base, char fmt);
 int	put_sign_dec(int n, char fmt);
 int	put_str_printf(char *str);
