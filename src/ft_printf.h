@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:09:56 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/14 14:26:18 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/15 11:52:10 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-// functions
+// prototypes
 int	ft_printf(const char *fmt, ...);
 int	fmt_switch(char fmt, va_list arg, int *len);
 int	put_uns_base(size_t n, int base, char fmt);

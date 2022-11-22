@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 12:38:30 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/14 16:05:41 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/22 13:41:20 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@ int	put_uns_base(size_t n, int base, char fmt)
 		fmt = 'x';
 	}
 	if ((n / base) != 0)
-		len += put_uns_base(n / base, base, fmt);
-	if (fmt == 'x')
 	{
-		tmp = ft_tolower(symbols[n % base]);
-		if (++len && write(1, &tmp, 1) == -1)
+		len += put_uns_base(n / base, base, fmt);
+		if (len == -1)
 			return (-1);
 	}
+	if (fmt == 'x')
+		tmp = ft_tolower(symbols[n % base]);
 	else
-		len += write(1, &symbols[n % base], 1);
+		tmp = symbols[n % base];
+	if (++len && write(1, &tmp, 1) == -1)
+		return (-1);
 	return (len);
 }
 
@@ -46,7 +48,11 @@ int	put_sign_dec(int n, char fmt)
 
 	len = 0;
 	if (n == -2147483648)
-		return (write(1, "-2147483648", 11));
+	{
+		if (write(1, "-2147483648", 11) == -1)
+			return (-1);
+		return (11);
+	}
 	if (n < 0)
 	{
 		num = n * -1;
