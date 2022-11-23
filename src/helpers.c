@@ -6,13 +6,13 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 12:38:30 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/22 13:53:09 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/23 11:27:08 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
-int	put_uns_base(size_t n, int base, char fmt)
+int	put_uns_base(unsigned long long n, int base, char fmt)
 {
 	const char	*symbols = "0123456789ABCDEF";
 	char		tmp;
