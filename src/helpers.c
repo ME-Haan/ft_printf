@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 12:38:30 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/23 11:27:08 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 11:11:37 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	put_uns_base(unsigned long long n, int base, char fmt)
 
 int	put_sign_dec(int n, char fmt)
 {
-	size_t	num;
-	int		len;
-	int		tmp;
+	unsigned long	num;
+	int				len;
+	int				tmp;
 
 	len = 0;
 	if (n == -2147483648)
