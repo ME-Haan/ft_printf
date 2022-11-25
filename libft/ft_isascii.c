@@ -6,7 +6,7 @@
 /*   By: mhaan <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 14:44:32 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/10 13:49:49 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:18:51 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,3 @@ int	ft_isascii(int c)
 		return (1);
 	return (0);
 }
-
-/*# include	<stdio.h>
-# include	<ctype.h>
-int	main(void)
-{
-	char c = '!';
-
-	printf("ft: %i\n", ft_isascii(c));
-	printf("test: %i", isascii(c));
-}*/

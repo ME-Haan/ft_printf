@@ -6,7 +6,7 @@
 /*   By: mhaan <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 15:09:30 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/14 17:20:10 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:19:02 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,3 @@ int	ft_isprint(int c)
 		return (1);
 	return (0);
 }
-
-/* # include	<stdio.h>
-# include	<ctype.h>
-int	main(void)
-{
-	char c = '!';
-
-	printf("ft: %i\n", ft_isprint(c));
-	printf("test: %i", isprint(c));
-} */

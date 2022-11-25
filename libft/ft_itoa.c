@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 18:00:10 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/31 17:23:53 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:19:10 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ char	*ft_itoa(int n)
 	str = (char *)malloc((numlen + 1) * sizeof(char));
 	if (!str)
 		return (0);
-	fill_str(str, numlen, n, sign);
-	return (str);
+	return (fill_str(str, numlen, n, sign), str);
 }
 
 static int	fill_str(char *str, size_t numlen, int n, int sign)
@@ -58,10 +57,3 @@ static int	fill_str(char *str, size_t numlen, int n, int sign)
 		str[numlen] = tmp + 48;
 	return (0);
 }
-
-/* #include <stdio.h>
-int	main (void)
-{
-	int	x = 0;
-	printf("%s\n", ft_itoa(x));
-} */

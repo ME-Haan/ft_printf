@@ -6,7 +6,7 @@
 #    By: mhaan <mhaan@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/27 16:14:12 by mhaan         #+#    #+#                  #
-#    Updated: 2022/11/14 11:31:03 by mhaan         ########   odam.nl          #
+#    Updated: 2022/11/25 15:51:42 by mhaan         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,21 +15,23 @@ AR = ar -crs
 CFLAGS = -Wall -Wextra -Werror
 RM = /bin/rm -rf
 
-SRC_DIR = src/
+SRC_DIR = ./src/
 SRC = 	ft_printf.c helpers.c switch.c
 
-OBJ_DIR = obj/
+OBJ_DIR = ./obj/
 OBJS = $(addprefix $(OBJ_DIR),$(SRC:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+$(NAME): $(OBJ_DIR) $(OBJS)
 		make bonus -C libft
 		cp libft/libft.a ./$(NAME)
 		$(AR) $(NAME) $(OBJS)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-		mkdir -p $(OBJ_DIR)
 		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

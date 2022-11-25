@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:41:15 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/15 14:02:17 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 12:41:17 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ char	*ft_strdup(const char *s1)
 	if (!mem)
 		return (0);
 	ft_memcpy(mem, s1, ft_strlen(s1) + 1);
-	return ((char *)mem);
+	return (mem);
 }

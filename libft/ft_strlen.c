@@ -6,7 +6,7 @@
 /*   By: mhaan <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 11:19:12 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/27 11:24:17 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:20:26 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
-/* # include	<stdio.h>
-# include	<string.h>
-int	main(void)
-{
-	char *c = NULL;
-
-	printf("ft: %lu\n", ft_strlen(c));
-	printf("test: %lu\n", strlen(c));
-} */

@@ -6,7 +6,7 @@
 /*   By: martin <martin@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/09 14:23:02 by martin        #+#    #+#                 */
-/*   Updated: 2022/10/10 15:15:33 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:20:46 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,3 @@ int	ft_tolower(int c)
 		return (c + 32);
 	return (c);
 }
-
-/* #include <stdio.h>
-int	main(int argc, char *argv[])
-{
-	(void) argc;
-	printf("%c\n", ft_tolower(argv[1][0]));
-	return(0);
-} */

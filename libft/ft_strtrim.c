@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 13:51:18 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/27 11:53:47 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:20:39 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	nstr = ft_substr(s1, start, end - start + 1);
 	return (nstr);
 }
-
-/* #include	<stdio.h>
-int	main ()
-{
-	printf("%s", ft_strtrim(NULL, NULL));
-} */

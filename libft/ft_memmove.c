@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 15:03:01 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/27 15:39:18 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:19:42 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,3 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-
-/*#include	<stdio.h>
-#include	<string.h>
-int main(void)
-{
-	char *csrc = "123";
-	memmove(NULL, csrc, 0);
-	printf("%s\n", csrc);
-	
-	char *csrc2 = "123";
-	ft_memmove(NULL, csrc2, 0);
-	printf("%s\n", csrc2);
-}*/
