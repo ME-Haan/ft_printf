@@ -6,7 +6,7 @@
 /*   By: martin <martin@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/09 15:50:55 by martin        #+#    #+#                 */
-/*   Updated: 2022/10/14 17:07:13 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:20:36 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)s);
 	return (last);
 }
-
-/* #include	<stdio.h>
-#include	<string.h>
-int	main(void)
-{
-	char	*str =  "In deze zin wil ik '0' vinden!";
-	char	to_find = 0;
-
-	printf("strchr: %s\n", strrchr(str, to_find));
-	printf("ft_strchr: %s\n", ft_strrchr(str, to_find));
-} */

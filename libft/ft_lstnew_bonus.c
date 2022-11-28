@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/21 16:47:39 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/31 17:23:21 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:19:23 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,3 @@ t_list	*ft_lstnew(void *content)
 	list->next = 0;
 	return (list);
 }
-
-/* #include <string.h>
-int main(void)
-{
-	t_list *l = ft_lstnew((void*)42);
-	l = 0;
-	write(1, "\n", 1);
-	return (0);
-} */

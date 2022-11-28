@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 16:24:46 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/31 17:22:56 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:19:59 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,11 @@ static int	fill_array(char const *s, char c, const size_t cnt, char **arr)
 			end++;
 		arr[i] = ft_substr(s, start, end - start);
 		if (!arr[i])
-		{
-			free_arr(arr, i);
-			return (1);
-		}
+			return (free_arr(arr, i), 1);
 		i++;
 		start = end;
 	}
-	arr[i] = 0;
-	return (0);
+	return (arr[i] = 0, 0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -81,18 +77,3 @@ char	**ft_split(char const *s, char c)
 		return (arr);
 	return (0);
 }
-
-/* #include	"stdio.h"
-int	main(void)
-{
-	// char str[] = "abc---efg--erga-adsgdgs----dsgas-da";
-	// char delim = '-';
-
-	char **arr = ft_split("hello!", ' ');
-
-	while (*arr)
-	{
-		printf("%s", *arr);
-		arr++;
-	}
-} */

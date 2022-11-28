@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/14 11:43:13 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/27 15:28:35 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:19:33 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
-/* #include	<stdio.h>
-#include	<string.h>
-int	main ()
-{
-	// printf("%d", ft_memcmp(NULL, NULL, 5));
-	printf("%d", memcmp("123", NULL, 5));
-} */

@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 12:23:19 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/24 14:52:18 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 12:50:07 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ int	ft_lstsize(t_list *lst)
 
 	count = 0;
 	tmp = lst;
-	while (tmp)
-	{
-		count++;
+	while (tmp && ++count)
 		tmp = tmp->next;
-	}
 	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 11:18:01 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/27 11:54:32 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:20:12 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memcpy(mem + s1len, s2, s2len + 1);
 	return (mem);
 }
-
-/* #include <stdio.h>
-#include <string.h>
-int	main (void)
-{
-	char	*s1 = "test";
-	char	*s2 = NULL;
-	printf("%s", ft_strjoin(s1, s2));
-} */

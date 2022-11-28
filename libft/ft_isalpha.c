@@ -6,7 +6,7 @@
 /*   By: mhaan <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 13:50:33 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/10 13:49:37 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:18:45 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,3 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
-
-/* # include	<stdio.h>
-# include	<ctype.h>
-int	main(void)
-{
-	char c = '1';
-	
-	printf("ft: %i", ft_isalpha(c));
-	printf("test: %i", isalpha(c));
-} */

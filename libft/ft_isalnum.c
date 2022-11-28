@@ -6,7 +6,7 @@
 /*   By: mhaan <marvin@codam.nl>                      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 14:24:32 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/10 13:48:59 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:18:37 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,3 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
-
-/*# include	<stdio.h>
-# include	<ctype.h>
-int	main(void)
-{
-	char c = '!';
-
-	printf("ft: %i\n", ft_isalnum(c));
-	printf("test: %i", isalnum(c));
-}*/

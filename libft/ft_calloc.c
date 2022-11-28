@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:10:51 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/15 13:38:54 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 12:53:36 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,5 @@ void	*ft_calloc(size_t count, size_t size)
 	mem = malloc(count * size);
 	if (!mem)
 		return (0);
-	ft_bzero(mem, (count * size));
-	return (mem);
+	return (ft_bzero(mem, (count * size)), mem);
 }

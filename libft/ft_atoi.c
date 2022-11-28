@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/14 17:15:05 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/31 17:18:56 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 15:18:24 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,3 @@ int	ft_atoi(const char *str)
 	}
 	return (val * sign);
 }
-
-/* #include	<stdio.h>
-int	main (void)
-{
-	char *str = "-99999999999999999";
-	printf("%i\n", ft_atoi(str));
-	printf("%i\n", atoi(str));
-} */ 

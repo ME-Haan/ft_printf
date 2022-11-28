@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/21 10:39:53 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/10/21 12:03:25 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/24 12:38:56 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		nstr[i] = f(i, s[i]);
 		i++;
 	}
-	nstr[i] = 0;
-	return (nstr);
+	return (nstr[i] = 0, nstr);
 }
