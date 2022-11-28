@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:08:40 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/25 15:39:29 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/28 10:44:47 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,15 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-/* #include	<stdio.h>
+/*#include	<stdio.h>
 int main(void)
 {
-  int printed_chars = 0;
-  int my_printed_chars = 0;
-  printed_chars = printf("OG: Hello %");
-  my_printed_chars = ft_printf("Me: Hello %");
-  printf("\n(no. printed chars with printf: %i)\n", printed_chars);
-  printf("(no. printed chars with ft_printf:  %i)\n", my_printed_chars);
-  return (0);
-} */
+	int printed_chars = 0;
+	int my_printed_chars = 0;
+	printed_chars = printf("OG: Hello %" );
+	my_printed_chars = ft_printf("Me: Hello %");
+	printf("\n(no. printed chars with printf: %i)\n", printed_chars);
+	printf("(no. printed chars with ft_printf:  %i)\n", my_printed_chars);
+	// ft_printf("%");
+	return (0);
+}*/
