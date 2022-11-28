@@ -6,7 +6,7 @@
 #    By: mhaan <mhaan@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/27 16:14:12 by mhaan         #+#    #+#                  #
-#    Updated: 2022/11/25 16:03:13 by mhaan         ########   odam.nl          #
+#    Updated: 2022/11/28 12:08:31 by mhaan         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = /bin/rm -rf
 
 SRC_DIR = ./src
-SRC = 	ft_printf.c helpers.c switch.c
+SRC = 	ft_printf.c helpers.c
 
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
