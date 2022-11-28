@@ -6,7 +6,7 @@
 #    By: mhaan <mhaan@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/27 16:14:12 by mhaan         #+#    #+#                  #
-#    Updated: 2022/11/28 12:17:18 by mhaan         ########   odam.nl          #
+#    Updated: 2022/11/28 17:20:08 by mhaan         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ $(NAME): $(OBJ_DIR) $(OBJS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 		$(CC) $(CFLAGS) -c $< -o $@
-
+		
 clean:
 		$(RM) $(OBJ_DIR)
 		make clean -C libft

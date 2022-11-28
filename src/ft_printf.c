@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:08:40 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/28 12:15:16 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/11/28 17:22:09 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int main(void)
 {
 	int printed_chars = 0;
 	int my_printed_chars = 0;
-	printed_chars = printf("OG: Hello %" );
-	my_printed_chars = ft_printf("Me: Hello %");
+	printed_chars = printf("OG: Hello %% w" );
+	my_printed_chars = ft_printf("Me: Hello %% w");
 	printf("\n(no. printed chars with printf: %i)\n", printed_chars);
 	printf("(no. printed chars with ft_printf:  %i)\n", my_printed_chars);
 	// ft_printf("%");
