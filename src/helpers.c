@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/05 12:38:30 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/24 11:11:37 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/12/07 13:30:10 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ int	put_uns_base(unsigned long long n, int base, char fmt)
 	int			len;
 
 	len = 0;
-	if (fmt == 'p')
-	{
-		if (++len && ++len && write(1, "0x", 2) == -1)
-			return (-1);
-		fmt = 'x';
-	}
 	if ((n / base) != 0)
 	{
 		len += put_uns_base(n / base, base, fmt);
@@ -35,8 +29,19 @@ int	put_uns_base(unsigned long long n, int base, char fmt)
 		tmp = ft_tolower(symbols[n % base]);
 	else
 		tmp = symbols[n % base];
-	if (++len && write(1, &tmp, 1) == -1)
+	if (write(1, &tmp, 1) == -1)
 		return (-1);
+	return (++len);
+}
+
+int	put_ptr(uintptr_t n)
+{
+	int	len;
+
+	len = 2;
+	if (write(1, "0x", 2) == -1)
+		return (-1);
+	len += put_uns_base(n, 16, 'x');
 	return (len);
 }
 
@@ -48,16 +53,13 @@ int	put_sign_dec(int n, char fmt)
 
 	len = 0;
 	if (n == -2147483648)
-	{
-		if (write(1, "-2147483648", 11) == -1)
-			return (-1);
-		return (11);
-	}
+		return (write(1, "-2147483648", 11));
 	if (n < 0)
 	{
 		num = n * -1;
-		if (++len && write(1, "-", 1) == -1)
+		if (write(1, "-", 1) == -1)
 			return (-1);
+		++len;
 	}
 	else
 		num = n;

@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:08:40 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/12/01 14:49:11 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/12/07 14:01:45 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	fmt_switch(char fmt, va_list arg, int *len)
 	else if (fmt == 'u')
 		*len += put_uns_base(va_arg(arg, unsigned int), 10, fmt);
 	else if (fmt == 'p')
-		*len += put_uns_base(va_arg(arg, uintptr_t), 16, fmt);
+		*len += put_ptr(va_arg(arg, uintptr_t));
 	else if (fmt == 'x' || fmt == 'X')
 		*len += put_uns_base(va_arg(arg, unsigned int), 16, fmt);
 	else if (fmt == '%')
@@ -42,8 +42,9 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str != '%')
 		{
-			if (++len && write(1, str, 1) == -1)
+			if (write(1, str, 1) == -1)
 				return (-1);
+			++len;
 		}
 		else if (*str == '%' && ft_strchr("cspdiuxX%", *(str + 1)))
 		{

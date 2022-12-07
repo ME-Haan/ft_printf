@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:09:56 by mhaan         #+#    #+#                 */
-/*   Updated: 2022/11/28 12:10:11 by mhaan         ########   odam.nl         */
+/*   Updated: 2022/12/07 13:24:35 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	put_uns_base(unsigned long long n, int base, char fmt);
 int	put_sign_dec(int n, char fmt);
 int	put_str_printf(char *str);
 int	put_chr_printf(char c);
+int	put_ptr(uintptr_t n);
 
 #endif
