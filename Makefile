@@ -6,7 +6,7 @@
 #    By: mhaan <mhaan@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/27 16:14:12 by mhaan         #+#    #+#                  #
-#    Updated: 2022/11/28 17:20:08 by mhaan         ########   odam.nl          #
+#    Updated: 2023/01/31 12:45:29 by mhaan         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = /bin/rm -rf
 
-SRC_DIR = ./src
+SRC_DIR = ./ft_printf
 SRC = 	ft_printf.c helpers.c
 
 OBJ_DIR = ./obj
@@ -35,7 +35,7 @@ $(NAME): $(OBJ_DIR) $(OBJS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 		$(CC) $(CFLAGS) -c $< -o $@
-		
+
 clean:
 		$(RM) $(OBJ_DIR)
 		make clean -C libft
