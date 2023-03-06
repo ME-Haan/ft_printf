@@ -6,7 +6,7 @@
 #    By: mhaan <mhaan@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/27 16:14:12 by mhaan         #+#    #+#                  #
-#    Updated: 2023/01/31 12:45:29 by mhaan         ########   odam.nl          #
+#    Updated: 2023/03/03 16:33:40 by mhaan         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,17 +25,6 @@ OBJS = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
 all: $(NAME)
 
-$(OBJ_DIR):
-		mkdir -p $(OBJ_DIR)
-
-$(NAME): $(OBJ_DIR) $(OBJS)
-		make bonus -C libft
-		cp libft/libft.a ./$(NAME)
-		$(AR) $(NAME) $(OBJS)
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-		$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
 		$(RM) $(OBJ_DIR)
 		make clean -C libft
@@ -47,6 +36,18 @@ fclean: clean
 re:
 		$(MAKE) fclean
 		$(MAKE) all
+
+
+$(NAME): $(OBJ_DIR) $(OBJS)
+		make bonus -C libft
+		cp libft/libft.a ./$(NAME)
+		$(AR) $(NAME) $(OBJS)
+
+$(OBJ_DIR):
+		mkdir -p $(OBJ_DIR)
+		
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+		$(CC) $(CFLAGS) -c $< -o $@
 
 .PHONY:
 		all clean fclean re
