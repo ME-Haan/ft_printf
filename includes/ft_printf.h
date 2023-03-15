@@ -6,7 +6,7 @@
 /*   By: mhaan <mhaan@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:09:56 by mhaan         #+#    #+#                 */
-/*   Updated: 2023/03/09 15:00:33 by mhaan         ########   odam.nl         */
+/*   Updated: 2023/03/15 11:17:05 by mhaan         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 // includes
-# include "libft.h"
+# include "../../libft/libft.h"
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
