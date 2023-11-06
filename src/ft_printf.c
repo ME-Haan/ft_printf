@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"ft_printf.h"
+#include "ft_printf.h"
 
 static int	fmt_switch(char fmt, va_list arg, int *len)
 {
